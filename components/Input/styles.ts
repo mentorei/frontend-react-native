@@ -1,0 +1,32 @@
+import styled from 'styled-components/native';
+import { space } from 'styled-system';
+import { getSize } from '../../utils';
+
+export const Container = styled.View`
+  width: ${getSize(315)};
+  align-self: center;
+  ${space}
+`;
+
+export const Input = styled.TextInput.attrs({
+  placeholderTextColor: '#CBCBCB',
+})`
+  width: 100%;
+  padding: ${getSize(25)} ${getSize(20)};
+  background-color: #f1f1f1;
+  font-family: HammersmithOne;
+  color: #746e6e;
+  height: ${getSize(50)};
+  border-radius: ${getSize(5)};
+  font-size: ${getSize(16)};
+`;
+
+export const Label = styled.Text`
+  color: #9a9a9a;
+  font-size: ${getSize(14)};
+  font-family: HammersmithOne;
+  width: ${getSize(120)};
+  height: ${getSize(14)};
+  flex-direction: column;
+  ${space};
+`;
