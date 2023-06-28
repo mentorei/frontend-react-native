@@ -2,6 +2,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 
@@ -10,14 +11,15 @@ export {
   ErrorBoundary,
 } from 'expo-router';
 
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-};
+// export const unstable_settings = {
+//   // Ensure any route can link back to `/`
+//   initialRouteName: "onboarding",
+// };
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    HammersmithOne: require('../assets/fonts/HammersmithOne-Regular.ttf'),
     ...FontAwesome.font,
   });
 
@@ -28,8 +30,10 @@ export default function RootLayout() {
 
   return (
     <>
+      <StatusBar style='dark' />
       {/* Keep the splash screen open until the assets have loaded. In the future, we should just support async font loading with a native version of font-display. */}
-      {!loaded && <SplashScreen />}
+      {!loaded && <SplashScreen />
+      }
       {loaded && <RootLayoutNav />}
     </>
   );
@@ -40,12 +44,15 @@ function RootLayoutNav() {
 
   return (
     <>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        </Stack>
-      </ThemeProvider>
+      {/* <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}> */}
+      <Stack initialRouteName='register'>
+        <Stack.Screen name="onboarding" options={{ headerShown: false, }} />
+        <Stack.Screen name="login" options={{ headerShown: false, }} />
+        <Stack.Screen name="register" options={{ headerShown: false, }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+      </Stack>
+      {/* </ThemeProvider> */}
     </>
   );
 }
