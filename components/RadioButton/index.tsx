@@ -15,7 +15,7 @@ export function RadioButtonForm(props: SpaceProps & RadioButtonFormProps) {
 }
 
 
-export function RadioButtonFormWithContext({ children, ...props }: SpaceProps & RadioButtonFormProps) {
+function RadioButtonFormWithContext({ children, ...props }: SpaceProps & RadioButtonFormProps) {
   if (!children) throw new Error('A RadioButtonFor needs Radio Buttons as children')
 
   const { selectedId, setSelectedId } = useContext(Context)
