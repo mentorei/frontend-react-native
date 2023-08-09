@@ -9,6 +9,8 @@ import {
 } from './styles';
 import { useRouter } from 'expo-router';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 export default function StepTree() {
   return (
     <>
@@ -20,7 +22,8 @@ export default function StepTree() {
 function Layout() {
 
   const router = useRouter()
-  const handleButtonPress = () => {
+  const handleButtonPress = async () => {
+    await AsyncStorage.setItem('ALLOW_ACCESS', 'true')
     router.push('/login')
   }
 

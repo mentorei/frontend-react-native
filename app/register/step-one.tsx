@@ -29,8 +29,8 @@ function Layout() {
       <Text mt={30} ml={30}>Preencha suas informações nos campos abaixo</Text>
       <Input mt={getSize(20)} label='Nome completo' placeholder='Digite seu nome...' />
       <Input mt={getSize(10)} label='E-mail' placeholder='Digite seu e-mail...' />
-      <Input mt={getSize(10)} label='Senha' placeholder='Digite sua senha...' />
-      <Input mt={getSize(10)} label='Confirmar senha' placeholder='Confirme sua senha...' />
+      <Input mt={getSize(10)} label='Senha' placeholder='Digite sua senha...' secureTextEntry={true} />
+      <Input mt={getSize(10)} label='Confirmar senha' placeholder='Confirme sua senha...' secureTextEntry={true} />
       <OptionsContainer mt={10}>
         <CheckBox label='Concordo com os termos' />
       </OptionsContainer>
