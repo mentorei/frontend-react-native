@@ -6,6 +6,8 @@ import {
   Text
 } from './styles';
 
+import { useRouter } from 'expo-router'
+
 export default function StepOne() {
   return (
     <>
@@ -15,6 +17,12 @@ export default function StepOne() {
 }
 
 function Layout() {
+
+  const router = useRouter()
+  const handleButtonPress = () => {
+    router.push('/register/step-two')
+  }
+
   return (
     <Container>
       <BackHeader title='Cadastro' />
@@ -26,7 +34,7 @@ function Layout() {
       <OptionsContainer mt={10}>
         <CheckBox label='Concordo com os termos' />
       </OptionsContainer>
-      <Button mt={20} title='Continuar' />
+      <Button mt={20} title='Continuar' onPress={handleButtonPress} />
     </Container >
   );
 }

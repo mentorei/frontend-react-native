@@ -14,11 +14,24 @@ export const Container = styled.SafeAreaView`
 export const Text = styled.Text`
   color: #686868;
   font-size: ${getSize(20)};
+  width: ${getSize(228)};
+  height: ${getSize(60)};
   font-family: HammersmithOne;
   ${space}
 `;
 
 export const Image = styled(DefaultImage)`
+  align-self: center;
+  ${space}
+  ${position}
+`;
+
+export const CardText = styled.Text`
+  color: #fff;
+  font-size: ${getSize(20)};
+  font-family: HammersmithOne;
+  flex-direction: column;
+  justify-content: center;
   align-self: center;
   ${space}
   ${position}
@@ -78,6 +91,7 @@ export const RegisterText = styled.Text`
   color: #746e6e;
   font-size: ${getSize(14)};
   font-family: HammersmithOne;
+  text-align: center;
   align-self: center;
   ${space}
 `;
@@ -88,4 +102,32 @@ export const StyledLink = styled(Link)`
   font-family: HammersmithOne;
   align-self: center;
   ${space}
+`;
+
+export const RadioButtonCardContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  padding: ${getSize(0)} ${getSize(30)};
+  ${space}
+`;
+
+export const RadioButtonCard = styled.TouchableOpacity`
+  width: 100%;
+  height: 100%;
+  padding: ${getSize(10)};
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0 auto;
+`;
+
+export const RadioContainer = styled.View`
+  flex-direction: row;
+  justify-content: flex-end;
+`;
+
+export const CardGradient = styled(LinearGradient)`
+  width: ${getSize(150)};
+  height: ${getSize(306)};
+  border-radius: ${getSize(7)};
+  margin: 0 auto;
 `;
