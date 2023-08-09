@@ -12,6 +12,7 @@ import {
   RegisterText,
   StyledLink
 } from './styles';
+import { useRouter } from 'expo-router';
 
 const studentPng = require('../../assets/images/screen/register/student.png')
 const mentorPng = require('../../assets/images/screen/register/mentor.png')
@@ -25,6 +26,12 @@ export default function StepTwo() {
 }
 
 function Layout() {
+
+  const router = useRouter()
+  const handleButtonPress = () => {
+    router.push('/register/step-tree')
+  }
+
   const [selectedOption, setSelectedOption] = useState<string | number>(0)
 
   return (
@@ -53,7 +60,7 @@ function Layout() {
           </CardGradient>
         </RadioButtonCardContainer>
       </RadioButtonForm>
-      <Button mt={20} title='Continuar' />
+      <Button mt={20} title='Continuar' onPress={handleButtonPress} />
       <RegisterText mt={20}>Para saber mais ou duvidas acesse o portal <StyledLink href='/register'>mentorei.com.br</StyledLink>.</RegisterText>
     </Container >
   );
