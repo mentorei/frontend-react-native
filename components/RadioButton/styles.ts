@@ -15,18 +15,18 @@ export const RadioButtonContainer = styled.Pressable`
 `;
 
 export const Radio = styled.View`
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
-  border-width: 4%;
+  height: ${getSize(30)};
+  width: ${getSize(30)};
+  border-radius: ${getSize(15)};
+  border-width: ${getSize(2.5)};
   border-color: ${(props: RadioButtonProps) => props.color ?? defaultColor};
   justify-content: center;
   align-items: center;
 `;
 
 export const RadioButtonFill = styled.View`
-  height: 60%;
-  width: 60%;
-  border-radius: 30%;
+  height: ${getSize(18)};
+  width: ${getSize(18)};
+  border-radius: ${getSize(9)};
   background-color: ${(props: RadioButtonProps) => props.color ?? defaultColor};
 `;

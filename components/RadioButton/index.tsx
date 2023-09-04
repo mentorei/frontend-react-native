@@ -61,8 +61,8 @@ export function RadioButton(props: RadioButtonProps & SpaceProps) {
 
   return (
     <RadioButtonContainer onPress={handlePress}>
-      <Radio ml={30} {...props}>
-        {selected && <RadioButtonFill  {...props} />}
+      <Radio ml={30} color={props?.color}>
+        {selected && <RadioButtonFill color={props?.color} />}
       </Radio >
     </RadioButtonContainer>
   )
