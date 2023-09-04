@@ -20,9 +20,12 @@ export const Gradient = styled(LinearGradient).attrs({
   border-radius: ${getSize(5)};
 `;
 
-export const Button = styled.Button`
+export const Button = styled.TouchableOpacity``;
+
+export const Text = styled.Text`
+  color: #fff;
   text-align: center;
-  font-size: ${getSize(32)};
+  font-size: ${getSize(26)};
   font-family: HammersmithOne;
   text-transform: capitalize;
 `;
