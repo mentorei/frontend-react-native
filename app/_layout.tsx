@@ -1,10 +1,12 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { ApolloProvider } from '@apollo/client'
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+import { mentoreiApolloClient } from '../services';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -45,14 +47,16 @@ function RootLayoutNav() {
   return (
     <>
       {/* <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}> */}
-      <Stack initialRouteName='register'>
-        <Stack.Screen name="onboarding" options={{ headerShown: false, }} />
-        <Stack.Screen name="login" options={{ headerShown: false, }} />
-        <Stack.Screen name="register" options={{ headerShown: false, }} />
-        <Stack.Screen name="home" options={{ headerShown: false, }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
+      <ApolloProvider client={mentoreiApolloClient}>
+        <Stack initialRouteName='register'>
+          <Stack.Screen name="onboarding" options={{ headerShown: false, }} />
+          <Stack.Screen name="login" options={{ headerShown: false, }} />
+          <Stack.Screen name="register" options={{ headerShown: false, }} />
+          <Stack.Screen name="home" options={{ headerShown: false, }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        </Stack>
+      </ApolloProvider>
       {/* </ThemeProvider> */}
     </>
   );

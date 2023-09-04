@@ -1,6 +1,6 @@
 import { Image as DefaultImage } from 'react-native';
 import styled from 'styled-components/native';
-import { space, position } from 'styled-system';
+import { space, position, layout } from 'styled-system';
 import { getSize } from '../../utils';
 import { Link } from 'expo-router';
 
@@ -13,6 +13,7 @@ export const Container = styled.SafeAreaView`
 
 export const Image = styled(DefaultImage)`
   align-self: center;
+  ${layout}
   ${space}
   ${position}
 `;

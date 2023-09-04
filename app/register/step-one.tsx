@@ -26,15 +26,13 @@ function Layout() {
   return (
     <Container>
       <BackHeader title='Cadastro' />
-      <Text mt={30} ml={30}>Preencha suas informações nos campos abaixo</Text>
+      <Text mt={30} ml={30}>Preencha suas informações pessoais nos campos abaixo</Text>
       <Input mt={getSize(20)} label='Nome completo' placeholder='Digite seu nome...' />
-      <Input mt={getSize(10)} label='E-mail' placeholder='Digite seu e-mail...' />
-      <Input mt={getSize(10)} label='Senha' placeholder='Digite sua senha...' />
-      <Input mt={getSize(10)} label='Confirmar senha' placeholder='Confirme sua senha...' />
-      <OptionsContainer mt={10}>
+      <Input mt={getSize(10)} label='CPF' placeholder='Digite seu cpf...' />
+      {/* <OptionsContainer mt={10}>
         <CheckBox label='Concordo com os termos' />
-      </OptionsContainer>
-      <Button mt={20} title='Continuar' onPress={handleButtonPress} />
+      </OptionsContainer> */}
+      <Button mt={20} value='Continuar' onPress={handleButtonPress} />
     </Container >
   );
 }

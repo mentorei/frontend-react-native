@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
+import { Button } from '../../components';
 import { getSize } from '../../utils';
-import { Button, Container, ButtonGradient, Image, Text, ButtonContainer } from './styles';
+import { Container, Image, Text } from './styles';
 
 const logoPng = require('../../assets/images/shared/gray-logo.png')
 const bannerPng = require('../../assets/images/screen/onboarding/banner.png')
@@ -24,11 +25,7 @@ function Layout() {
       <Image source={logoPng} mt={getSize(30)} />
       <Image source={bannerPng} mt={getSize(30)} />
       <Text ml={getSize(30)} mt={getSize(30)} mr={getSize(30)} >Esse é o mentorei, o aplicativo que veio para governar o ensino digital</Text>
-      <ButtonContainer mt={getSize(20)} mr={getSize(30)}>
-        <ButtonGradient>
-          <Button title='Seguir' color='#fff' onPress={handleButtonPress} />
-        </ButtonGradient>
-      </ButtonContainer>
+      <Button mt={getSize(20)} value='Continuar' onPress={handleButtonPress} />
     </Container >
   );
 }

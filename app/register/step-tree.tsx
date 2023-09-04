@@ -1,13 +1,21 @@
 import { useState } from 'react';
-import { BackHeader, Button } from '../../components';
-import { SelectForm } from '../../components/CardSelect';
+import { BackHeader, RadioButton, RadioButtonForm, Button } from '../../components';
 import {
   Container,
+  Text,
+  RadioButtonCardContainer,
+  RadioButtonCard,
+  CardGradient,
+  Image,
+  CardText,
+  RadioContainer,
   RegisterText,
-  StyledLink,
-  Text
+  StyledLink
 } from './styles';
 import { useRouter } from 'expo-router';
+
+const studentPng = require('../../assets/images/screen/register/student.png')
+const mentorPng = require('../../assets/images/screen/register/mentor.png')
 
 export default function StepTree() {
   return (
@@ -21,29 +29,38 @@ function Layout() {
 
   const router = useRouter()
   const handleButtonPress = () => {
-    router.push('/login')
+    router.push('/register/step-four')
   }
-
 
   const [selectedOption, setSelectedOption] = useState<string | number>(0)
 
   return (
     <Container>
       <BackHeader title='Cadastro' />
-      <Text mt={30} ml={30}>Selecione suas skills</Text>
-      <SelectForm
-        ml={30}
-        data={[
-          { text: 'JavaScript', id: 1 },
-          { text: 'Python', id: 2 },
-          { text: 'SQL', id: 3 },
-          { text: 'NoSQL', id: 4 },
-          { text: 'AWS', id: 5 },
-          { text: 'Comunicação', id: 6 }
-        ]}
-        onSelected={setSelectedOption}
-      />
-      <Button mt={20} title='Finalizar' onPress={handleButtonPress} />
+      <Text mt={30} ml={30}>Escolha sua forma de acesso</Text>
+      <RadioButtonForm onSelected={setSelectedOption}>
+        <RadioButtonCardContainer mt={30}>
+          <CardGradient colors={['#FFD700', '#FFAC38']}>
+            <RadioButtonCard onPress={() => setSelectedOption(1)}>
+              <RadioContainer>
+                <RadioButton color='#fff' id={1} selected={selectedOption === 1} />
+              </RadioContainer>
+              <Image source={studentPng} />
+              <CardText mb={30}>Aluno</CardText>
+            </RadioButtonCard>
+          </CardGradient>
+          <CardGradient colors={['#4DB9FD', '#427CFA']}>
+            <RadioButtonCard onPress={() => setSelectedOption(2)}>
+              <RadioContainer>
+                <RadioButton color='#fff' id={2} selected={selectedOption === 2} />
+              </RadioContainer>
+              <Image source={mentorPng} />
+              <CardText mb={30}>Mentor</CardText>
+            </RadioButtonCard>
+          </CardGradient>
+        </RadioButtonCardContainer>
+      </RadioButtonForm>
+      <Button mt={20} value='Continuar' onPress={handleButtonPress} />
       <RegisterText mt={20}>Para saber mais ou duvidas acesse o portal <StyledLink href='/register'>mentorei.com.br</StyledLink>.</RegisterText>
     </Container >
   );

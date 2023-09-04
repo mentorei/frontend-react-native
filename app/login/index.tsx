@@ -33,7 +33,7 @@ function Layout() {
 
   return (
     <Container>
-      <Image source={bannerPng} />
+      <Image source={bannerPng} resizeMode='cover' width={1} />
       <Image source={logoPng} position='absolute' top={80} />
       <WelcomeText position='absolute' top={150}>Bem vindo!</WelcomeText>
       <Input mt={getSize(30)} label='E-mail' placeholder='Digite seu e-mail...' />
@@ -44,7 +44,7 @@ function Layout() {
           Esqueceu sua senha?
         </ForgotPasswordText>
       </OptionsContainer>
-      <Button mt={20} title='Entrar' onPress={handleButtonPress} />
+      <Button mt={20} value='Entrar' onPress={handleButtonPress} />
       <RegisterText mt={20}>Não possui cadastro? clique em <StyledLink href='/register'>Criar conta</StyledLink>.</RegisterText>
     </Container>
   );

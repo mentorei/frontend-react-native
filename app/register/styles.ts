@@ -14,8 +14,8 @@ export const Container = styled.SafeAreaView`
 export const Text = styled.Text`
   color: #686868;
   font-size: ${getSize(20)};
-  width: ${getSize(228)};
-  height: ${getSize(60)};
+  width: 90%;
+  height: auto;
   font-family: HammersmithOne;
   ${space}
 `;
