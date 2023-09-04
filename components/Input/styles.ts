@@ -12,11 +12,10 @@ export const Input = styled.TextInput.attrs({
   placeholderTextColor: '#CBCBCB',
 })`
   width: 100%;
-  padding: ${getSize(25)} ${getSize(20)};
+  padding: ${getSize(17)} ${getSize(20)};
   background-color: #f1f1f1;
   font-family: HammersmithOne;
   color: #746e6e;
-  height: ${getSize(50)};
   border-radius: ${getSize(5)};
   font-size: ${getSize(16)};
 `;
