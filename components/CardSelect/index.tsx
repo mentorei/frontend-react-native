@@ -17,20 +17,15 @@ export function SelectForm(props: SpaceProps & FormProps) {
   )
 }
 
-
 function FormWithContext({ ...props }: SpaceProps & FormProps) {
 
-  const { selectedId, setSelectedId } = useContext(Context)
+  const { selectedIds } = useContext(Context)
 
   useEffect(() => {
-    if (props.default && !selectedId) {
-      setSelectedId(props.default)
-    }
-
     if (typeof props.onSelected === 'function') {
-      props.onSelected(selectedId)
+      props.onSelected(selectedIds)
     }
-  }, [selectedId, props.default])
+  }, [selectedIds])
 
   return (
     <FormContainer {...props}>
@@ -40,25 +35,31 @@ function FormWithContext({ ...props }: SpaceProps & FormProps) {
 }
 
 function Card(props: CardProps & SpaceProps) {
-  const { selectedId, setSelectedId } = useContext(Context)
+  const { selectedIds, setSelectedIds } = useContext(Context)
   const [selected, setSelected] = useState(false)
 
 
-  useEffect(() => {
-    if (props?.selected) {
-      setSelectedId(props.id)
-    }
-  }, [props?.selected])
+  function unselectId(id: string | number) {
+    const filteredIds = selectedIds.filter((item: string | number) => item !== id)
+    setSelectedIds(filteredIds)
+  }
 
   useEffect(() => {
-    setSelected(props.id === selectedId)
-  }, [selectedId, props.id])
+    const isSelected = selectedIds.includes(props.id)
+    setSelected(isSelected)
+  }, [selectedIds, props.id])
 
   function handlePress() {
     if (typeof props.onPress === 'function') {
       props.onPress(props.id)
     }
-    setSelectedId(props.id)
+
+    if (selectedIds.includes(props.id)) {
+      unselectId(props.id)
+      return;
+    }
+
+    setSelectedIds([...selectedIds, props.id])
   }
 
   return (

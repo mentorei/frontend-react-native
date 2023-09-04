@@ -4,15 +4,15 @@ export const Context = createContext<any>({})
 
 export const ContextProvider = ({ children }: { children: React.ReactNode }) => {
 
-  const [id, setId] = useState<string | number | null>(null)
+  const [ids, setIds] = useState<(string | number)[]>([])
 
 
-  const setSelectedId = (id: string | number) => {
-    setId(id)
+  const setSelectedIds = (ids: (string | number)[]) => {
+    setIds(ids)
   }
 
   return (
-    <Context.Provider value={{ selectedId: id, setSelectedId }}>
+    <Context.Provider value={{ selectedIds: ids, setSelectedIds }}>
       {children}
     </Context.Provider>
   )

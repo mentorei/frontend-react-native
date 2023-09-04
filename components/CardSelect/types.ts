@@ -8,5 +8,4 @@ export type CardProps = {
 export type FormProps = {
   onSelected?: (id: string | number) => void;
   data: { text: string; id: number | string }[];
-  default?: string | number;
 };
