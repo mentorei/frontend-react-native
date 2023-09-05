@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BackHeader, Button } from '../../components';
+import { Header, Button } from '../../components';
 import { SelectForm } from '../../components/CardSelect';
 import {
   Container,
@@ -33,10 +33,10 @@ function Layout() {
 
   return (
     <Container>
-      <BackHeader title='Cadastro' />
+      <Header title='Meu Perfil' backButton />
       <Text mt={30} ml={30}>Selecione suas skills</Text>
       <SelectForm
-
+        mt={20}
         ml={30}
         data={[
           { text: 'JavaScript', id: 1 },
@@ -48,8 +48,8 @@ function Layout() {
         ]}
         onSelected={setSelectedOption}
       />
-      <Button mt={20} value='Finalizar' onPress={handleButtonPress} />
-      <RegisterText mt={20}>Para saber mais ou duvidas acesse o portal <StyledLink href='/register'>mentorei.com.br</StyledLink>.</RegisterText>
+      <Button mt={10} value='Finalizar' onPress={handleButtonPress} />
+      <RegisterText mt={20}>Para saber mais ou duvidas acesse o portal <StyledLink href='/register'>mentorei.app</StyledLink>.</RegisterText>
     </Container >
   );
 }

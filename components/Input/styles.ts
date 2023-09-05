@@ -29,3 +29,13 @@ export const Label = styled.Text`
   flex-direction: column;
   ${space};
 `;
+
+export const RequiredLabel = styled.Text`
+  color: rgba(193, 82, 82, 0.91);
+  font-size: ${getSize(10)};
+  font-family: HammersmithOne;
+  width: 97%;
+  margin-top: ${getSize(5)};
+  text-align: right;
+  ${space};
+`;

@@ -8,14 +8,14 @@ type Props = { value: string }
 
 export function Button({ value, ...props }: Props & TouchableOpacityProps & SpaceProps) {
   return (
-    <Container {...props}>
-      <Gradient>
-        <StyledButton {...props} >
+    <StyledButton {...props} >
+      <Container {...props}>
+        <Gradient>
           <Text>
             {value}
           </Text>
-        </StyledButton>
-      </Gradient>
-    </Container>
+        </Gradient>
+      </Container>
+    </StyledButton>
   )
 }

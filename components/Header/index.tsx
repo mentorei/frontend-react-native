@@ -6,20 +6,20 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 const iconPng = require('../../assets/images/shared/back-icon.png')
 
-type Props = { title: string }
+type Props = { title: string, backButton?: boolean }
 
-export function BackHeader({ title, ...props }: Props) {
+export function Header({ title, backButton, ...props }: Props) {
 
   const navigation = useNavigation()
 
   return (
     <Gradient>
       <Container {...props}>
-        <ButtonContainer>
+        {backButton && (<ButtonContainer>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Image source={iconPng} />
           </TouchableOpacity>
-        </ButtonContainer>
+        </ButtonContainer>)}
         <Title>{title}</Title>
       </Container >
     </Gradient>

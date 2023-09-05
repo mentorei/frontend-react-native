@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BackHeader, RadioButton, RadioButtonForm, Button } from '../../components';
+import { Header, RadioButton, RadioButtonForm, Button } from '../../components';
 import {
   Container,
   Text,
@@ -36,8 +36,8 @@ function Layout() {
 
   return (
     <Container>
-      <BackHeader title='Cadastro' />
-      <Text mt={30} ml={30}>Escolha sua forma de acesso</Text>
+      <Header title='Meu Perfil' />
+      <Text mt={30} ml={30}>Qual o seu perfil de usuário?</Text>
       <RadioButtonForm onSelected={setSelectedOption}>
         <RadioButtonCardContainer mt={30}>
           <CardGradient colors={['#FFD700', '#FFAC38']}>
@@ -61,7 +61,7 @@ function Layout() {
         </RadioButtonCardContainer>
       </RadioButtonForm>
       <Button mt={20} value='Continuar' onPress={handleButtonPress} />
-      <RegisterText mt={20}>Para saber mais ou duvidas acesse o portal <StyledLink href='/register'>mentorei.com.br</StyledLink>.</RegisterText>
+      <RegisterText mt={20}>Para saber mais ou duvidas acesse o portal <StyledLink href='/register'>mentorei.app</StyledLink>.</RegisterText>
     </Container >
   );
 }
