@@ -2,9 +2,11 @@ import { Button, Header, Input } from "../../components";
 import { getSize } from "../../utils";
 import { Container, Text } from "./styles";
 
-import { useRouter } from "expo-router";
+// import { useRouter } from "expo-router";
 
 import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 interface FormDataProps {
   name: string;
@@ -19,9 +21,16 @@ export default function StepOne() {
   );
 }
 
+const formSchema = yup.object({
+  name: yup.string().required("O nome é obrigatório."),
+  cpf: yup.string().required("O cpf é obrigatório."),
+});
+
 function Layout() {
-  const router = useRouter();
-  const { control, handleSubmit, formState } = useForm<FormDataProps>();
+  // const router = useRouter();
+  const { control, handleSubmit, formState } = useForm<FormDataProps>({
+    resolver: yupResolver(formSchema),
+  });
 
   const handleButtonPress = handleSubmit((data) => {
     console.log(data);
@@ -37,7 +46,6 @@ function Layout() {
       <Controller
         control={control}
         name="name"
-        rules={{ required: "O nome é obrigatório." }}
         render={({ field }) => (
           <Input
             errorMessage={formState.errors.name?.message}
@@ -52,7 +60,6 @@ function Layout() {
       <Controller
         control={control}
         name="cpf"
-        rules={{ required: "O cpf é obrigatório." }}
         render={({ field }) => (
           <Input
             mt={getSize(10)}
