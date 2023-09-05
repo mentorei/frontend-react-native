@@ -1,7 +1,7 @@
-import { Image as DefaultImage } from 'react-native';
-import styled from 'styled-components/native';
-import { space } from 'styled-system';
-import { getSize } from '../../utils';
+import { Image as DefaultImage } from "react-native";
+import styled from "styled-components/native";
+import { space } from "styled-system";
+import { getSize } from "../../utils";
 
 export const Container = styled.SafeAreaView`
   flex: 1;

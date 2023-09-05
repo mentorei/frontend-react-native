@@ -1,10 +1,10 @@
-import { Image as DefaultImage } from 'react-native';
-import styled from 'styled-components/native';
-import { space, position } from 'styled-system';
-import { getSize } from '../../utils';
-import { Link } from 'expo-router';
+import { Image as DefaultImage } from "react-native";
+import styled from "styled-components/native";
+import { space, position } from "styled-system";
+import { getSize } from "../../utils";
+import { Link } from "expo-router";
 
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -49,7 +49,7 @@ export const WelcomeText = styled.Text`
 `;
 
 export const ButtonGradient = styled(LinearGradient).attrs({
-  colors: ['#FFAC38', '#FFD700'],
+  colors: ["#FFAC38", "#FFD700"],
 })`
   width: ${getSize(120)};
   height: ${getSize(50)};

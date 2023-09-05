@@ -1,6 +1,6 @@
-import styled from 'styled-components/native';
-import { space } from 'styled-system';
-import { getSize } from '../../utils';
+import styled from "styled-components/native";
+import { space } from "styled-system";
+import { getSize } from "../../utils";
 
 export const Container = styled.View`
   width: ${getSize(315)};
@@ -9,7 +9,7 @@ export const Container = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#CBCBCB',
+  placeholderTextColor: "#CBCBCB",
 })`
   width: 100%;
   padding: ${getSize(17)} ${getSize(20)};

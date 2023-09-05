@@ -1,8 +1,8 @@
-import styled from 'styled-components/native';
-import { space } from 'styled-system';
-import { getSize } from '../../utils';
+import styled from "styled-components/native";
+import { space } from "styled-system";
+import { getSize } from "../../utils";
 
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 
 export const Container = styled.View`
   width: ${getSize(315)};
@@ -11,7 +11,7 @@ export const Container = styled.View`
 `;
 
 export const Gradient = styled(LinearGradient).attrs({
-  colors: ['#FFAC38', '#FFD700'],
+  colors: ["#FFAC38", "#FFD700"],
 })`
   width: 100%;
   height: ${getSize(60)};

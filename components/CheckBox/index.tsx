@@ -1,17 +1,19 @@
+import { type CheckboxProps } from "expo-checkbox";
+import { type SpaceProps } from "styled-system";
+import { Container, Checkbox as StyledCheckbox, Text } from "./styles";
 
-import { Checkbox as StyledCheckbox, Container, Text } from './styles'
-import { getSize } from '../../utils'
-import { SpaceProps } from 'styled-system'
-import ExpoCheckbox, { CheckboxProps } from 'expo-checkbox'
+interface Props {
+  label: string;
+}
 
-
-type Props = { label: string }
-
-export function CheckBox({ label, ...props }: CheckboxProps & Props & SpaceProps) {
+export function CheckBox({
+  label,
+  ...props
+}: CheckboxProps & Props & SpaceProps) {
   return (
     <Container {...props}>
-      <StyledCheckbox  {...props} />
+      <StyledCheckbox {...props} />
       <Text>{label}</Text>
     </Container>
-  )
+  );
 }

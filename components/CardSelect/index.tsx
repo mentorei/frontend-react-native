@@ -1,73 +1,85 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { SpaceProps } from 'styled-system';
-import { Context, ContextProvider } from './context';
-import { CardContainer, FormContainer, Text, List, SelectedIcon } from './styles';
-import { TouchableOpacity } from 'react-native'
+import { useContext, useEffect, useState } from "react";
+import { type SpaceProps } from "styled-system";
+import { Context, ContextProvider } from "./context";
+import {
+  CardContainer,
+  FormContainer,
+  Text,
+  List,
+  SelectedIcon,
+} from "./styles";
+import { TouchableOpacity } from "react-native";
 
-import { CardProps, FormProps } from './types';
+import { type CardProps, type FormProps } from "./types";
 
-const selectedPng = require('../../assets/images/component/card-select/selected.png')
-
+const selectedPng = require("../../assets/images/component/card-select/selected.png");
 
 export function SelectForm(props: SpaceProps & FormProps) {
   return (
     <ContextProvider>
       <FormWithContext {...props} />
     </ContextProvider>
-  )
+  );
 }
 
 function FormWithContext({ ...props }: SpaceProps & FormProps) {
-
-  const { selectedIds } = useContext(Context)
+  const { selectedIds } = useContext(Context);
 
   useEffect(() => {
-    if (typeof props.onSelected === 'function') {
-      props.onSelected(selectedIds)
+    if (typeof props.onSelected === "function") {
+      props.onSelected(selectedIds);
     }
-  }, [selectedIds])
+  }, [selectedIds]);
 
   return (
     <FormContainer {...props}>
-      <List data={props.data} renderItem={({ item }: { item: { text: string; id: string | number } }) => <Card text={item.text} id={item.id} />} />
-    </FormContainer >
-  )
+      <List
+        data={props.data}
+        renderItem={({
+          item,
+        }: {
+          item: { text: string; id: string | number };
+        }) => <Card text={item.text} id={item.id} />}
+      />
+    </FormContainer>
+  );
 }
 
 function Card(props: CardProps & SpaceProps) {
-  const { selectedIds, setSelectedIds } = useContext(Context)
-  const [selected, setSelected] = useState(false)
-
+  const { selectedIds, setSelectedIds } = useContext(Context);
+  const [selected, setSelected] = useState(false);
 
   function unselectId(id: string | number) {
-    const filteredIds = selectedIds.filter((item: string | number) => item !== id)
-    setSelectedIds(filteredIds)
+    const filteredIds = selectedIds.filter(
+      (item: string | number) => item !== id,
+    );
+    setSelectedIds(filteredIds);
   }
 
   useEffect(() => {
-    const isSelected = selectedIds.includes(props.id)
-    setSelected(isSelected)
-  }, [selectedIds, props.id])
+    const isSelected = selectedIds.includes(props.id);
+    setSelected(isSelected);
+  }, [selectedIds, props.id]);
 
   function handlePress() {
-    if (typeof props.onPress === 'function') {
-      props.onPress(props.id)
+    if (typeof props.onPress === "function") {
+      props.onPress(props.id);
     }
 
     if (selectedIds.includes(props.id)) {
-      unselectId(props.id)
+      unselectId(props.id);
       return;
     }
 
-    setSelectedIds([...selectedIds, props.id])
+    setSelectedIds([...selectedIds, props.id]);
   }
 
   return (
     <TouchableOpacity onPress={handlePress}>
       <CardContainer>
-        {selected && (<SelectedIcon source={selectedPng} />)}
+        {selected && <SelectedIcon source={selectedPng} />}
         <Text>{props.text}</Text>
       </CardContainer>
     </TouchableOpacity>
-  )
+  );
 }

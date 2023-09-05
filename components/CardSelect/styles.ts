@@ -1,15 +1,15 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import { FlatList, Image } from 'react-native';
-import styled from 'styled-components/native';
-import { space } from 'styled-system';
-import { getSize } from '../../utils';
+import { LinearGradient } from "expo-linear-gradient";
+import { FlatList, Image } from "react-native";
+import styled from "styled-components/native";
+import { space } from "styled-system";
+import { getSize } from "../../utils";
 
 export const FormContainer = styled.View`
   ${space}
 `;
 
 export const CardContainer = styled(LinearGradient).attrs({
-  colors: ['#427EFA', '#4CB6FD'],
+  colors: ["#427EFA", "#4CB6FD"],
 })`
   width: ${getSize(150)};
   height: ${getSize(100)};
