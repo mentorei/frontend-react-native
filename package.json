@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "devtools": "npx  react-devtools"
+    "devtools": "npx react-devtools"
   },
   "jest": {
     "preset": "jest-expo"
