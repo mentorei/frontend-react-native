@@ -1,7 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import styled from "styled-components/native";
 import { space } from "styled-system";
-import { getSize } from "../../utils";
+import { getSize } from "@/utils";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export const Gradient = styled(LinearGradient).attrs({

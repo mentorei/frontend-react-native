@@ -1,7 +1,7 @@
 import { Image as DefaultImage } from "react-native";
 import styled from "styled-components/native";
 import { space, position, layout } from "styled-system";
-import { getSize } from "../../utils";
+import { getSize } from "@/utils";
 import { Link } from "expo-router";
 
 import { LinearGradient } from "expo-linear-gradient";

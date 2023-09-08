@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Header, Button } from "../../components";
-import { SelectForm } from "../../components/CardSelect";
+import { Header, Button } from "@/components";
+import { SelectForm } from "@/components/CardSelect";
 import { Container, RegisterText, StyledLink, Text } from "./styles";
 import { useRouter } from "expo-router";
 

@@ -2,7 +2,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { FlatList, Image } from "react-native";
 import styled from "styled-components/native";
 import { space } from "styled-system";
-import { getSize } from "../../utils";
+import { getSize } from "@/utils";
 
 export const FormContainer = styled.View`
   ${space}

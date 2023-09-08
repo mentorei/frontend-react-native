@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { space } from "styled-system";
-import { getSize } from "../../utils";
+import { getSize } from "@/utils";
 import ExpoCheckbox from "expo-checkbox";
 
 export const Container = styled.View`

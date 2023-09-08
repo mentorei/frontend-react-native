@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { ApolloProvider } from "@apollo/client";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { mentoreiApolloClient } from "../services";
+import { mentoreiApolloClient } from "@/services";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -18,7 +17,6 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
@@ -33,12 +31,10 @@ export default function RootLayout() {
 
   return (
     <>
-      {/* <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}> */}
       <StatusBar style="dark" />
       <ApolloProvider client={mentoreiApolloClient}>
         <Stack screenOptions={{ headerShown: false }} />
       </ApolloProvider>
-      {/* </ThemeProvider> */}
     </>
   );
 }

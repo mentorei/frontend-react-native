@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header, RadioButton, RadioButtonForm, Button } from "../../components";
+import { Header, RadioButton, RadioButtonForm, Button } from "@/components";
 import {
   Container,
   Text,

@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { getSize } from "../../utils";
+import { getSize } from "@/utils";
 import { type RadioButtonProps } from "./types";
 import { space } from "styled-system";
 

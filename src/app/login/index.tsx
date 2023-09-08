@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
-import { Button, CheckBox, Input } from "../../components";
-import { getSize } from "../../utils";
+import { Button, CheckBox, Input } from "@/components";
+import { getSize } from "@/utils";
 import {
   Container,
   Image,

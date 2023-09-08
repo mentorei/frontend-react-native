@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
-import { Button } from "../../components";
-import { getSize } from "../../utils";
+import { Button } from "@/components";
+import { getSize } from "@/utils";
 import { Container, Image, Text } from "./styles";
 
 const logoPng = require("@assets/images/shared/gray-logo.png");

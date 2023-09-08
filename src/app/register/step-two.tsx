@@ -1,5 +1,5 @@
-import { Button, Header, Input } from "../../components";
-import { getSize } from "../../utils";
+import { Button, Header, Input } from "@/components";
+import { getSize } from "@/utils";
 import { Container, Text } from "./styles";
 
 import { useRouter } from "expo-router";

@@ -1,5 +1,5 @@
 import { type SpaceProps } from "styled-system";
-import { getSize } from "../../utils";
+import { getSize } from "@/utils";
 import {
   Container,
   Label,
