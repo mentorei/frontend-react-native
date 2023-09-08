@@ -3,7 +3,22 @@ module.exports = function (api) {
   return {
     presets: ["babel-preset-expo"],
     plugins: [
-      require.resolve("expo-router/babel"),
+      "expo-router/babel",
+      [
+        "babel-plugin-root-import",
+        {
+          paths: [
+            {
+              rootPathSuffix: "./src",
+              rootPathPrefix: "@/",
+            },
+            {
+              rootPathSuffix: "./assets",
+              rootPathPrefix: "@assets/",
+            },
+          ],
+        },
+      ],
     ],
   };
 };

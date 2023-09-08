@@ -12,7 +12,7 @@ import { TouchableOpacity } from "react-native";
 
 import { type CardProps, type FormProps } from "./types";
 
-const selectedPng = require("../../assets/images/component/card-select/selected.png");
+const selectedPng = require("@assets/images/component/card-select/selected.png");
 
 export function SelectForm(props: SpaceProps & FormProps) {
   return (

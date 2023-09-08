@@ -2,7 +2,7 @@ import { useNavigation } from "expo-router";
 import { Image, TouchableOpacity } from "react-native";
 import { ButtonContainer, Container, Gradient, Title } from "./styles";
 
-const iconPng = require("../../assets/images/shared/back-icon.png");
+const iconPng = require("@assets/images/shared/back-icon.png");
 
 interface Props {
   title: string;

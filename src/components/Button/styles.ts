@@ -1,8 +1,17 @@
 import styled from "styled-components/native";
 import { space } from "styled-system";
-import { getSize } from "../../utils";
+import { getSize } from "@/utils";
 
 import { LinearGradient } from "expo-linear-gradient";
+
+type GradientProps = {
+  disabled: boolean;
+};
+
+const ButtonGradients = {
+  ENABLED_STATUS: ["#FFAC38", "#FFD700"],
+  DISABLED_STATUS: ["#F1EDED", "#E7E4E0"],
+};
 
 export const Container = styled.View`
   width: ${getSize(315)};
@@ -10,9 +19,13 @@ export const Container = styled.View`
   ${space}
 `;
 
-export const Gradient = styled(LinearGradient).attrs({
-  colors: ["#FFAC38", "#FFD700"],
-})`
+export const Gradient = styled(LinearGradient).attrs(
+  (props: GradientProps) => ({
+    colors: !props.disabled
+      ? ButtonGradients.ENABLED_STATUS
+      : ButtonGradients.DISABLED_STATUS,
+  }),
+)`
   width: 100%;
   height: ${getSize(60)};
   justify-content: center;

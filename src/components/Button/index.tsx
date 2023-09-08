@@ -8,12 +8,13 @@ interface Props {
 
 export function Button({
   value,
+  disabled,
   ...props
 }: Props & TouchableOpacityProps & SpaceProps) {
   return (
-    <StyledButton {...props}>
+    <StyledButton disabled={disabled} {...props}>
       <Container {...props}>
-        <Gradient>
+        <Gradient disabled={disabled}>
           <Text>{value}</Text>
         </Gradient>
       </Container>

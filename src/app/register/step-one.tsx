@@ -1,17 +1,23 @@
-import { Button, Header, Input } from "../../components";
+import { Button, Header } from "../../components";
+import { Input, Masks } from "../../components/Input";
 import { getSize } from "../../utils";
 import { Container, Text } from "./styles";
 
-// import { useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 
-import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 
 interface FormDataProps {
   name: string;
   cpf: string;
 }
+
+const formSchema = yup.object({
+  name: yup.string().required("O nome é obrigatório."),
+  cpf: yup.string().required("O cpf é obrigatório."),
+});
 
 export default function StepOne() {
   return (
@@ -21,20 +27,15 @@ export default function StepOne() {
   );
 }
 
-const formSchema = yup.object({
-  name: yup.string().required("O nome é obrigatório."),
-  cpf: yup.string().required("O cpf é obrigatório."),
-});
-
 function Layout() {
-  // const router = useRouter();
+  const router = useRouter();
   const { control, handleSubmit, formState } = useForm<FormDataProps>({
     resolver: yupResolver(formSchema),
   });
 
   const handleButtonPress = handleSubmit((data) => {
     console.log(data);
-    // router.push('/register/step-two')
+    router.push("/register/step-two");
   });
 
   return (
@@ -48,10 +49,10 @@ function Layout() {
         name="name"
         render={({ field }) => (
           <Input
-            errorMessage={formState.errors.name?.message}
             mt={getSize(20)}
             label="Nome completo"
             placeholder="Digite seu nome..."
+            errorMessage={formState.errors.name?.message}
             onChangeText={field.onChange}
             value={field.value}
           />
@@ -65,11 +66,14 @@ function Layout() {
             mt={getSize(10)}
             label="CPF"
             keyboardType="numeric"
-            errorMessage={formState.errors.cpf?.message}
             placeholder="Digite seu cpf..."
-            onChangeText={field.onChange}
+            onChangeText={(_, unmaskedValue) => {
+              field.onChange(unmaskedValue);
+            }}
             onSubmitEditing={handleButtonPress}
             returnKeyType="send"
+            errorMessage={formState.errors.cpf?.message}
+            mask={Masks.BRL_CPF}
             value={field.value}
           />
         )}

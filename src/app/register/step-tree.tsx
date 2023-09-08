@@ -14,8 +14,8 @@ import {
 } from "./styles";
 import { useRouter } from "expo-router";
 
-const studentPng = require("../../assets/images/screen/register/student.png");
-const mentorPng = require("../../assets/images/screen/register/mentor.png");
+const studentPng = require("@assets/images/screen/register/student.png");
+const mentorPng = require("@assets/images/screen/register/mentor.png");
 
 export default function StepTree() {
   return (
@@ -77,7 +77,12 @@ function Layout() {
           </CardGradient>
         </RadioButtonCardContainer>
       </RadioButtonForm>
-      <Button mt={20} value="Continuar" onPress={handleButtonPress} />
+      <Button
+        mt={20}
+        value="Continuar"
+        onPress={handleButtonPress}
+        disabled={true}
+      />
       <RegisterText mt={20}>
         Para saber mais ou duvidas acesse o portal{" "}
         <StyledLink href="/register">mentorei.app</StyledLink>.

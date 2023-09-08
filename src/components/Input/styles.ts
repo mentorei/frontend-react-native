@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { space } from "styled-system";
 import { getSize } from "../../utils";
+import MaskInput from "react-native-mask-input";
 
 export const Container = styled.View`
   width: ${getSize(315)};
@@ -8,7 +9,7 @@ export const Container = styled.View`
   ${space}
 `;
 
-export const Input = styled.TextInput.attrs({
+export const Input = styled(MaskInput).attrs({
   placeholderTextColor: "#CBCBCB",
 })`
   width: 100%;
